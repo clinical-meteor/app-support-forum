@@ -1,0 +1,58 @@
+<template name="forumPage">
+  <div id="forumPage" class="page">
+    <div class="container with-top-and-bottom-spacing">
+
+      {{#if showSearchPanel }}
+      <div class="panel {{ getPreferredProfileTheme }}">
+        <div class="panel-heading">
+          Forum Search
+        </div>
+        <div class="haptic panel-footer">
+          <input type="text" placeholder="search topic">
+          <input type="text" placeholder="tags">
+          <input type="text" placeholder="exclude topic" class="red">
+          <input type="text" placeholder="triggers" class="red">
+        </div>
+      </div>
+      {{/if}}
+
+      {{> chatWidget}}
+      {{#if isLoggedIn }}
+        <a id="createPostButton" href="/post" class="pull-right btn {{ getPreferredButtonTheme }}">Create Post</a>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+
+<template name="postItem">
+  <li class="{{isSelectedItem}} unselectable list-group-item">
+    <div class="media post-header">
+      <div class="pull-left image-sidebar">
+        <div class="bold gray">{{ creatorName }}</div>
+      </div>
+      <div class="media-body">
+        <div class="fullwidth">
+          <ul class="pull-right inline">
+            {{#each tagObjects}}
+            <li class="gray tags"><i class="fa fa-tag"></i> {{tag}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="media">
+      <div class="pull-left image-sidebar">
+        <div class="media-object-container">
+          <img class="media-object" src="{{ getPostAvatar }}" alt="user avatar">
+        </div>
+        <!--<div class="gray ">{{ creatorName }}</div>-->
+      </div>
+      <div class="media-body">
+        <p class="card-padding text">{{{text}}}</p>
+      </div>
+    </div>
+  </li>
+</template>

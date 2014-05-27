@@ -1,0 +1,59 @@
+<template name="usersListPage">
+  <div id="usersListPage" class="page">
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            Users List
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>
+                id
+              </th>
+              <th>
+                username
+              </th>
+              <th>
+                email
+              </th>
+              <th>
+                full name
+              </th>
+              <th>
+                wallpaper
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each usersList }}
+            {{> userListItem}}
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="userListItem">
+  <tr class="userListItem">
+    <td>
+      {{_id}}
+    </td>
+    <td>
+      {{ username }}
+    </td>
+    <td>
+      {{ getEmail }}
+    </td>
+    <td>
+      {{ profile.name }}
+    </td>
+    <td>
+      {{ wallpaper }}
+    </td>
+  </tr>
+</template>

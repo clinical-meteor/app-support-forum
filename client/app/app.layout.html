@@ -1,0 +1,27 @@
+<head>
+  <title>groupthink</title>
+</head>
+
+<body>
+  {{> reactiveOverlaysTemplate }}
+</body>
+
+
+<template name="mainLayout">
+  <img class="" src="{{customBackgroundImage}}">
+    <aside>
+        <!-- render to the sidebar yield -->
+        {{> yield region='sidebar'}}
+    </aside>
+
+    {{> navbarHeader }}
+
+    <!-- the main template will be rendered here -->
+    {{> yield}}
+
+    {{> navbarFooter }}
+    <footer>
+        <!-- render to the footer yield -->
+        {{> yield region='footer'}}
+    </footer>
+</template>

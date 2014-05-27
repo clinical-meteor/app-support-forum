@@ -1,0 +1,94 @@
+<template name="topicsPage">
+  <div id="topicsPage" class="page">
+    <div class="container with-top-and-bottom-spacing">
+
+      {{#if showSearchPanel }}
+        <div class="panel {{ getPreferredProfileTheme }}">
+          <div class="panel-heading">
+            Search Topics
+          </div>
+          <div class="haptic panel-footer">
+            <input type="text" placeholder="search topics">
+            <input type="text" placeholder="tags">
+            <input type="text" placeholder="exclude topic" class="red">
+            <input type="text" placeholder="triggers" class="red">
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if creatingNewTopic }}
+        <div id="newTopicPanel" class="padded new-topic panel {{ getPreferredProfileTheme }}">
+          <div class="row">
+            <div class="col col-lg-8 col-md-8 col-sm-12 with-bottom-margin">
+              <input id="newTopicInput" type="text" class="form-control" placeholder="Describe the topic....">
+            </div>
+            <div class="col col-lg-2 col-md-2 col-sm-6 with-bottom-margin">
+              <button id="newTopicSave" class="fullwidth btn btn-danger">Save</button>
+            </div>
+            <div class="col col-lg-2 col-md-2 col-sm-6 with-bottom-margin">
+              <button id="newTopicCancel" class="fullwidth btn btn-default">Cancel</button>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <div class="new-topic-btn row">
+          <button id="createTopicButton" class="unselectable btn {{ getPreferredButtonTheme }} pull-left unselectable"><i class="fa fa-pencil-square-o"></i>  Create Topic</button>
+        </div>
+      {{/if}}
+
+
+      <div class="panel {{ getPreferredProfileTheme }}">
+        <div class="unselectable panel-heading">
+          Topics
+          <ul class="pull-right inline">
+            <li id="toggleForumAdminButton"><i class="fa {{ getLockIcon }}"></i></li>
+          </ul>
+        </div>
+        <ul class="media-list">
+          {{#if topics}}
+            {{#each topics}}
+            {{> topicItem }}
+            {{/each }}
+          {{else}}
+          <li>this is an empty list!  why don't you create a post?</li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="topicItem">
+  <li class="media">
+    <div class="col col-lg-7 col-md-7 col-sm-7">
+      <a class="pull-left" href="#">
+        <i class="largish media-object fa fa-pencil-square-o"></i>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{ topic }}</h4>
+        <i class="fa fa-user"></i> {{ getTopicOwner }} <span class="lightgray with-left-padding"> <i class="fa fa-calendar"></i> {{getTopicDate}}</span>
+      </div>
+    </div>
+    <div class="col col-lg-2 col-md-2 col-sm-2">
+      <div class="media-body">
+        <h4 class="media-heading"><i class="fa fa-tachometer"></i> {{ getNumberReplies }}</h4>
+        <h4 class="gray media-heading"><i class="gray fa fa-eye"></i> {{ getNumberViews }}</h4>
+      </div>
+
+    </div>
+    <div class="col col-lg-3 col-md-3 col-sm-3">
+      {{#if showForumAdminButtons }}
+      <div class="media-body">
+        <div id="promoteTopicButton" class="btn btn-success">Promote</div>
+        <div id="lockTopicButton" class="btn btn-warning">{{getLockButtonText}}</div>
+        <div id="deleteTopicButton" class="btn btn-danger">Delete</div>
+      </div>
+      {{else}}
+      <div class="media-body">
+        <span class="gray"><i class="fa fa-user"></i>  {{ getLastUpdatedBy }}</span><br>
+        <span class="gray"><i class="fa fa-calendar"></i>  {{ getLastUpdate }}</span>
+      </div>
+      {{/if}}
+    </div>
+  </li>
+</template>

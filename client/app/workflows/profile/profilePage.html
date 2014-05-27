@@ -1,0 +1,96 @@
+<template name="profilePage">
+    <div id="profilePage" class="page">
+        {{#if isLoggedIn }}
+            <div class="container with-top-and-bottom-spacing">
+                <div class="profile panel {{getPreferredProfileTheme}}">
+                    <div class="panel-heading">
+                        User Profile {{ time }}
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-4 avatar-center">
+                            {{{ getAvatarImage }}}
+                            <div id="forgotPasswordButton" class="fullwidth btn btn-default with-bottom-margin">Forgot Password</div>
+                        </div>
+                        <div class="col col-lg-8">
+                            <label for="userProfileEmail">Email</label>
+                            <input id="userProfileEmail" name="userProfileEmail" placeholder="email" type="text" class="fullwidth profile-input" value="{{ getEmail }}">
+
+                            <!--<label for="userProfileUsername">Username</label>-->
+                            <!--<input id="userProfileUsername" name="userProfileUsername" placeholder="username" type="text" class="fullwidth profile-input" value="{{ getUsername }}"></input>-->
+
+                            <label for="userProfileTriggerFilterInput">Keyword Filters</label>
+                            <input id="userProfileTriggerFilterInput" name="userProfileTriggerFilterInput" placeholder="list keywords you want to filter out of posts" type="text" class="fullwidth profile-input" value="{{ getTriggers }}">
+
+                            <label for="userProfileIgnoreListInput">Ignore Users List</label>
+                            <input id="userProfileIgnoreListInput" name="userProfileIgnoreListInput" placeholder="list usernames you want to ignore, separated by commas" type="text" class="fullwidth profile-input" value="{{ getIgnoreList }}">
+
+                            <!--<label for="themePreference">Theme Preference</label>-->
+                            <!--<p id="themePreference">{{ getThemePreference }}</p>-->
+
+                            <label for="sortPreference">Sort Preference</label>
+                            <p id="sortPreference">{{ getSortPreference }}</p>
+
+                            <label for="wallpaperPreference">Wallpaper Preference</label>
+                            <p id="wallpaperPreference">{{ getWallpaperPreference }}</p>
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="noThemeButton btn btn-default">None</div>
+                        <div class="pinkThemeButton btn btn-danger">Pink</div>
+                        <div class="greenThemeButton btn btn-success">Green</div>
+                        <div class="blueThemeButton btn btn-info">Blue</div>
+
+                        <div class="pull-right saveButton btn btn-default">Save</div>
+                    </div>
+                </div>
+                <div class="panel {{ getPreferredProfileTheme }}">
+                    <div class="panel-heading">
+                        Select Wallpaper
+                    </div>
+
+                    <div class="panel-footer">
+                        <ul class="inline">
+                            <li class="clickable unselectable wallpaperSample thumbnail noWallpaper"></li>
+                            <li class="clickable unselectable wallpaperSample thumbnail pinkWallpaper"></li>
+                            <li class="clickable unselectable wallpaperSample thumbnail greenWallpaper"></li>
+                            <li class="clickable unselectable wallpaperSample thumbnail blueWallpaper"></li>
+                            <li class="clickable unselectable wallpaperSample thumbnail rainbowWallpaper"></li>
+                        </ul>
+                      <!--<label for="userProfileBackgroundInput">Custom Background Url</label>-->
+                      <!--<input id="userProfileBackgroundInput" name="userProfileBackgroundInput" placeholder="avatar image" type="text" class="fullwidth profile-input" value="{{ getAvatarUrl }}"></input>-->
+
+                    </div>
+                </div>
+              <div class="panel {{ getPreferredProfileTheme }}">
+                <div class="panel-heading">
+                  Select Avatar
+                </div>
+
+                <div class="panel-footer">
+                  <ul class="inline avatar-selection">
+                    <li id="girlOneAvatarButton" class="clickable unselectable avatarSample thumbnail"><img class="thumbnail" src="/images/icons/Default_Female_1.png"></li>
+                    <li id="girlTwoAvatarButton" class="clickable unselectable avatarSample thumbnail"><img class="thumbnail" src="/images/icons/Default_Female_2.png"></li>
+                    <li id="defaultUserAvatarButton" class="clickable unselectable avatarSample thumbnail"><img class="thumbnail" src="/images/icons/Default_User.png"></li>
+                    <li id="boyTwoAvatarButton" class="clickable unselectable avatarSample thumbnail"><img class="thumbnail" src="/images/icons/Default_Male_2.png"></li>
+                    <li id="boyOneAvatarButton" class="clickable unselectable avatarSample thumbnail"><img class="thumbnail" src="/images/icons/Default_Male_1.png"></li>
+                  </ul>
+                  <label for="userProfileAvatarInput">Custom Avatar Url</label>
+                  <input id="userProfileAvatarInput" name="userProfileAvatarInput" placeholder="avatar image" type="text" class="fullwidth profile-input" value="{{ getAvatarUrl }}">
+
+                </div>
+              </div>
+
+            </div>
+        {{else}}
+        <div class="centered container">
+            <div class="col col-lg-6">
+                <h2 class="gray">Ouch!  Somebody needs to login!</h2>
+            </div>
+            <div class="col col-lg-6">
+                <img src="/images/Access-Denied.jpg">
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</template>
