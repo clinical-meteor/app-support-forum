@@ -14,7 +14,7 @@ Accounts.onCreateUser(function(options, user) {
 
   //Avatars for various services
   if(service == "facebook") {
-    user.profile.avatar = "http://graph.facebook.com/" + user.services.facebook.id + "/picture?type=square";
+    user.profile.avatar = "http://graph.facebook.com/" + user.services.facebook.id + "/picture?type=large";
   }else if(service == "github") {
       user.profile.avatar = user.services.github.avatar_url;
   }else if(service == "google") {

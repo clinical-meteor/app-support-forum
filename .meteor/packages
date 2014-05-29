@@ -7,7 +7,6 @@ standard-app-packages
 less
 iron-router
 accounts-password
-accounts-ui
 bootstrap-wysiwyg
 
 event-hooks
@@ -21,3 +20,7 @@ font-awesome
 bootstrap3-less
 roles
 reactive-overlays
+accounts-facebook
+accounts-base
+service-configuration
+accounts-ui

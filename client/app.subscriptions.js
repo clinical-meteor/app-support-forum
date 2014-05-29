@@ -24,7 +24,7 @@ Meteor.subscribe('settings', function(){
 
   settingsId = Session.get('systemConfigs')._id;
 
-  displayForkMeBanner(Session.get('systemConfigs'));
+  //displayForkMeBanner(Session.get('systemConfigs'));
 });
 
 Meteor.autorun(function(){
@@ -33,18 +33,18 @@ Meteor.autorun(function(){
 
 
 
-
-
-forkMeBanner = null;
-displayForkMeBanner = function(session){
-  if(session.forkme){
-    forkMeBanner = new ForkMe({
-      user: 'awatson1978',
-      repo: 'clinical-support-forum',
-      ribbon: {
-        color: 'orange',
-        position: 'left'
-      }
-    });
-  }
-};
+//
+//
+// forkMeBanner = null;
+// displayForkMeBanner = function(session){
+//   if(session.forkme){
+//     forkMeBanner = new ForkMe({
+//       user: 'awatson1978',
+//       repo: 'clinical-support-forum',
+//       ribbon: {
+//         color: 'orange',
+//         position: 'left'
+//       }
+//     });
+//   }
+// };

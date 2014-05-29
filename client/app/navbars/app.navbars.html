@@ -16,13 +16,17 @@
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{#if facebookNotConfigured }}
+          <li><a>{{> loginButtons }}</a></li>
+          {{/if}}
+
           {{#if isLoggedIn }}
             <li><a href="/profile">{{ userName }}</a></li>
             <li><a href="/sign-out">Sign-Out</a></li>
           {{else}}
             <li><div id="signUpButton" class="btn btn-sm btn-warning">Sign Up</div></li>
             <li><a href="/sign-in">Sign-In</a></li>
-            {{/if}}
+          {{/if}}
         </ul>
       </div>
     </nav>

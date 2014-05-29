@@ -1,4 +1,12 @@
 
+Template.navbarHeader.facebookNotConfigured = function(){
+  if(ServiceConfiguration.configurations.findOne({service:'facebook'})){
+    return false;
+  }else{
+    return true;
+  }
+};
+
 
 Template.navbarHeader.navbarBrandLink = function(){
   if(Meteor.userId()){
