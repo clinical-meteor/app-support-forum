@@ -25,9 +25,6 @@ Router.map(function() {
     template: 'landingPage',
     onBeforeAction: function(){
       Session.set('current_page', 'Landing');
-    },
-    onAfterAction: function() {
-      setPageTitle("Home");
     }
   });
   this.route('guidelinesRoute', {
