@@ -13,33 +13,33 @@ Installation
 git clone https://github.com/awatson1978/clinical-support-forum.git
 
 # And then running it...
-sudo mrt
+meteor
 ````
 
 Default Users
 ------------------------
 
 ````js
-    {
-      username: 'sysadmin',
-      password: 'sysadmin',
-      email: 'sysadmin@test.org'
-      role: 'Admin',
-    }
+  {
+    username: 'sysadmin',
+    password: 'sysadmin',
+    email: 'sysadmin@test.org'
+    role: 'Admin',
+  }
 
-    {
-      username: 'janedoe',
-      password: 'janedoe',
-      email: 'janedoe@test.org',
-      role: 'User'
-    }
-      
-   {
-      username: 'johndoe',
-      password: 'johndoe',
-      email: 'johndoe@test.org',
-      role: 'User'
-    }
+  {
+    username: 'janedoe',
+    password: 'janedoe',
+    email: 'janedoe@test.org',
+    role: 'User'
+  }
+
+ {
+    username: 'johndoe',
+    password: 'johndoe',
+    email: 'johndoe@test.org',
+    role: 'User'
+  }
 ````
 
 
@@ -57,6 +57,4 @@ TODO LIST
 Licensing
 ------------------------
 
-
 MIT License. Use as you wish, including for commercial purposes.
-See license.mit.txt for full details.
