@@ -25,6 +25,7 @@ Router.map(function() {
     template: 'landingPage',
     onBeforeAction: function(){
       Session.set('current_page', 'Landing');
+      this.next();
     }
   });
   this.route('guidelinesRoute', {
@@ -32,6 +33,7 @@ Router.map(function() {
     template: 'guidelinesPage',
     onBeforeAction: function(){
       Session.set('current_page', 'Guidelines');
+      this.next();
     },
     onAfterAction:function() {
       setPageTitle("Guidelines");
@@ -44,6 +46,7 @@ Router.map(function() {
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Topics');
+      this.next();
     },
     onAfterAction: function() {
       setPageTitle("Topics");
@@ -55,6 +58,7 @@ Router.map(function() {
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Forum');
+      this.next();
     },
     onAfterAction: function() {
       setPageTitle("List of topics");
@@ -69,8 +73,10 @@ Router.map(function() {
         this.stop();
       }else{
         Session.set('forum_topic_id', this.params._id);
+      this.next();
       }
       Session.set('current_page', 'Forum');
+      this.next();
     },
     waitOn: function(){
       Meteor.subscribe('posts');
@@ -87,6 +93,7 @@ Router.map(function() {
     onBeforeAction: function(){
       //Session.set('forum_topic_id', 'CvydqH5rhpzNcjf7B');
       Session.set('current_page', 'Forum');
+      this.next();
     },
     waitOn: function(){
       Meteor.subscribe('posts');
@@ -103,6 +110,7 @@ Router.map(function() {
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Profile');
+      this.next();
     },
     onAfterAction: function() {
       setPageTitle("Your Profile");
@@ -114,6 +122,7 @@ Router.map(function() {
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Admin');
+      this.next();
     },
     onAfterAction: function() {
       setPageTitle("Admin");
@@ -125,6 +134,7 @@ Router.map(function() {
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Admin');
+      this.next();
     },
 //    waitOn: function(){
 //      Meteor.subscribe('settings');
@@ -135,18 +145,20 @@ Router.map(function() {
     }
   });
 
-  this.route('postInputRoute', {
+  this.route('newPostRoute', {
     path: '/post',
     template:'postInputPage',
     onBeforeAction: function(){
       checkUserSignedIn(this);
       Session.set('current_page', 'Post');
-    }, onAfterAction: function() {
+      this.next();
+    },
+    onAfterAction: function() {
       setPageTitle("New Post");
     }
   });
 
-  this.route('postInputRoute', {
+  this.route('updatePostRoute', {
     path: '/posts/:_id',
     data: function() { return Posts.findOne(this.params._id); },
     template: 'postInputPage',
@@ -160,9 +172,11 @@ Router.map(function() {
         if(Session.get('user_intent') != "createpost"){
           Session.set('user_intent', 'updatepost');
         }
+        this.next();
       }
       console.log('router....');
       console.log(Session.get('selected_post_id'));
+      this.next();
     },
     waitOn: function(){
       Meteor.subscribe('topics');

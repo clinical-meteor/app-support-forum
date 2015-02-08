@@ -1,4 +1,6 @@
 Session.setDefault('show_reactive_overlay', false);
+Session.setDefault('forum_admin_buttons', false);
+
 
 Meteor.startup(function(){
   if(Meteor.userId()){
@@ -7,6 +9,9 @@ Meteor.startup(function(){
     removeWallpapers();
   }
 });
+
+// ======================================================
+// HELPER FUNCTIONS
 
 setWallpaper = function(){
   var user = Meteor.user();
@@ -24,3 +29,11 @@ removeWallpapers = function(){
   $('html').removeClass('blueWallpaper');
   $('html').removeClass('rainbowWallpaper');
 };
+
+toggleSession = function(variable){
+  if(Session.get(variable)){
+    Session.set(variable, false);
+  }else{
+    Session.set(variable, true);
+  }
+}

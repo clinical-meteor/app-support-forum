@@ -27,13 +27,7 @@ Router.map(function() {
         Meteor.logout();
         Router.go(AccountsEntry.settings.homeRoute);
       }
-      return this.stop();
+      this.next();
     }
   });
 });
-
-
-
-
-
-

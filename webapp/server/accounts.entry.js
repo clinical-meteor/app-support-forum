@@ -1,4 +1,7 @@
 Meteor.methods({
+  eventsOnHooksInit: function () {
+    return true;
+  },
   entryValidateSignupCode:function(signupCode){
   	check(signupCode || "", String);
 
