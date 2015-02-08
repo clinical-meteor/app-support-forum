@@ -1,30 +1,32 @@
 <template name="navbarFooter">
-  <nav id="navbarFooter" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-    <div class="navbar-footer">
-      <div class="container">
-        <ul class="centered inline nav navbar">
-          {{#if isLoggedIn }}
-            {{#if canEdit }}
-              {{#if isTopicsPage }}
-                {{> topicsAdminFooter}}
+  <div id="navbarFooter">
+    <nav id="navbarFooterNav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="navbar-footer">
+        <div class="container">
+          <ul class="centered inline nav navbar">
+            {{#if isLoggedIn }}
+              {{#if canEdit }}
+                {{#if isTopicsPage }}
+                  {{> topicsAdminFooter}}
+                {{/if}}
+                {{#if isForumPage }}
+                  {{> forumAdminFooter}}
+                {{/if}}
+                {{#if isPostPage }}
+                  {{> postAdminFooter}}
+                {{/if}}
               {{/if}}
-              {{#if isForumPage }}
-                {{> forumAdminFooter}}
-              {{/if}}
-              {{#if isPostPage }}
-                {{> postAdminFooter}}
-              {{/if}}
+              <li id="userListButton"><a href="/users"><i class="fa fa-list"></i>  Users</a></li>
+            {{else}}
+              <li><a class="gray" href="http://www.pentasyllabic.com">Pentasyllabic Studios, LLC</a></li>
+              <li><a class="gray" href="http://www.pentasyllabic.com">Meteor-Cookbook</a></li>
+              <li><a class="gray" href="https://github.com/awatson1978/groupthink/issues">Report An Issue</a></li>
             {{/if}}
-            <li id="userListButton"><a href="/users"><i class="fa fa-list"></i>  Users</a></li>
-          {{else}}
-            <li><a class="gray" href="http://www.pentasyllabic.com">Pentasyllabic Studios, LLC</a></li>
-            <li><a class="gray" href="http://www.pentasyllabic.com">Meteor-Cookbook</a></li>
-            <li><a class="gray" href="https://github.com/awatson1978/groupthink/issues">Report An Issue</a></li>
-          {{/if}}
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 

@@ -8,7 +8,8 @@
 
 
 <template name="mainLayout">
-  <img class="" src="{{customBackgroundImage}}">
+  <div id="mainLayout">
+    <img class="" src="{{customBackgroundImage}}">
     <aside>
         <!-- render to the sidebar yield -->
         {{> yield region='sidebar'}}
@@ -17,11 +18,14 @@
     {{> navbarHeader }}
 
     <!-- the main template will be rendered here -->
-    {{> yield}}
+    <main id="mainPanel">
+      {{> yield}}
+    </main>
 
     {{> navbarFooter }}
     <footer>
         <!-- render to the footer yield -->
         {{> yield region='footer'}}
     </footer>
+  </div>
 </template>
