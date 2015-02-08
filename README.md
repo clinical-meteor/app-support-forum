@@ -1,8 +1,9 @@
 clinical-support-forum
 ==========
 
-Meteor bulletin-board system.
+Meteor bulletin-board system (BBS) and help/discussion forum.
 
+![travis-build](https://travis-ci.org/awatson1978/clinical-support-forum.svg?branch=master)  
 
 Installation
 ------------------------
